@@ -23,7 +23,7 @@ local config = {
     captiveOption = "nag",
 
     -- What message to show with the above options? Nag, Freeze, and Captive can use colors.
-    captiveMessage = "You must ~r~register~s~ with our CAD before playing! Visit ~r~http://yourwebsite.here~s~ to do so."
+    captiveMessage = "You must ~r~register~s~ with our CAD before playing! Visit ~r~http://yourwebsite.here~s~ to do so.",
 
     -- What message to show the /verifycad command? This displays under the notice.
     verifyMessage = "Type ~r~/verifycad~s~ in chat when finished."
