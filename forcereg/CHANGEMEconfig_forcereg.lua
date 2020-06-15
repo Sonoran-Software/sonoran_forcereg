@@ -7,7 +7,7 @@
 
 ]]
 local config = {
-    enabled = true,
+    enabled = false,
     configVersion = "1.0",
     pluginName = "forcereg", -- name your plugin here
     pluginAuthor = "SonoranCAD", -- author
