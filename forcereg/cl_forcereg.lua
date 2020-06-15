@@ -51,8 +51,15 @@ if pluginConfig.enabled then
         while true do
             if isNagging then
                 -- USER CONFIG: Change the below to adjust the text to your liking
-                DrawText2D(pluginConfig.captiveMessage, 0, 0, 0.35, 0.01, 0.3, 255, 255, 255, 150)
-                DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..id, 0, 0, 0.35, 0.03, 0.3, 255, 255, 255, 150)
+                if pluginConfig.nagDrawTextLocation:lower() == "top" then
+                    DrawText2D(pluginConfig.captiveMessage, 0, 0, 0.305, 0.01, 0.3, 255, 255, 255, 150)
+                    DrawText2D(pluginConfig.instructionalMessage, 0, 0, 0.3, 0.03, 0.3, 255, 255, 255, 150)
+                    DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..id, 0, 0, 0.35, 0.06, 0.3, 255, 255, 255, 150)
+                elseif pluginConfig.nagDrawTextLocation:lower() == "center" then
+                    DrawText2D(pluginConfig.captiveMessage, 0, 0, 0.2, 0.4, 0.5, 255, 255, 255, 150)
+                    DrawText2D(pluginConfig.instructionalMessage, 0, 0, 0.195, 0.45, 0.5, 255, 255, 255, 150)
+                    DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..id, 0, 0, 0.265, 0.5, 0.5, 255, 255, 255, 150)
+                end
                 -- END USER CONFIG
                 Wait(0)
             elseif isFreezing then
@@ -66,8 +73,9 @@ if pluginConfig.enabled then
                         SetEntityCoords(PlayerPedId(), freezePos, 0.0, 0.0, 0.0, false)
 
                         -- USER CONFIG: Change the below to adjust the text to your liking
-                        DrawText2D(pluginConfig.captiveMessage, 0, 0, 0.2, 0.45, 0.5, 255, 255, 255, 150)
-                        DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..id, 0, 0, 0.2, 0.5, 0.5, 255, 255, 255, 150)
+                        DrawText2D(pluginConfig.captiveMessage, 0, 0, 0.2, 0.4, 0.5, 255, 255, 255, 150)
+                        DrawText2D(pluginConfig.instructionalMessage, 0, 0, 0.195, 0.45, 0.5, 255, 255, 255, 150)
+                        DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..id, 0, 0, 0.265, 0.5, 0.5, 255, 255, 255, 150)
                         -- END USER CONFIG
                         Wait(0)
                     end
