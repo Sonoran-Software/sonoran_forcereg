@@ -23,11 +23,11 @@ if pluginConfig.enabled then
             Wait(1)
             id = identifier
             print(("Identifier %s does not exist."):format(identifier))
-            if pluginConfig.captiveOption == "nag" then
+            if pluginConfig.captiveOption:lower() == "nag" then
                 isNagging = true
-            elseif pluginConfig.captiveOption == "freeze" then
+            elseif pluginConfig.captiveOption:lower() == "freeze" then
                 isFreezing = true
-            elseif pluginConfig.captiveOption == "NoSpawn" then
+            elseif pluginConfig.captiveOption:lower() == "nospawn" then
                 isNoSpawn = true
             else
                 assert(false, 'Invalid captiveOption!')
