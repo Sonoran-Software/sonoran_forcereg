@@ -16,12 +16,14 @@ if pluginConfig.enabled then
     local freezePos = nil
     local isNoSpawn = false
     local id = nil
+    local idString = nil
 
     RegisterNetEvent("SonoranCAD::forcereg:PlayerReg")
     AddEventHandler("SonoranCAD::forcereg:PlayerReg", function(identifier, exists)
         if not exists then
             Wait(1)
             id = identifier
+            idString = Config.serverType == "esx" and ("%s:%s"):format(Config.primaryIdentifier, identifier) or identifier
             print(("Identifier %s does not exist."):format(identifier))
             if pluginConfig.captiveOption:lower() == "nag" then
                 isNagging = true
@@ -58,7 +60,7 @@ if pluginConfig.enabled then
                 elseif pluginConfig.nagDrawTextLocation:lower() == "center" then
                     DrawText2D(pluginConfig.captiveMessage, 0, 0, 0.2, 0.4, 0.5, 255, 255, 255, 150)
                     DrawText2D(pluginConfig.instructionalMessage, 0, 0, 0.195, 0.45, 0.5, 255, 255, 255, 150)
-                    DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..id, 0, 0, 0.265, 0.5, 0.5, 255, 255, 255, 150)
+                    DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..idString, 0, 0, 0.265, 0.5, 0.5, 255, 255, 255, 150)
                 end
                 -- END USER CONFIG
                 Wait(0)
@@ -75,7 +77,7 @@ if pluginConfig.enabled then
                         -- USER CONFIG: Change the below to adjust the text to your liking
                         DrawText2D(pluginConfig.captiveMessage, 0, 0, 0.2, 0.4, 0.5, 255, 255, 255, 150)
                         DrawText2D(pluginConfig.instructionalMessage, 0, 0, 0.195, 0.45, 0.5, 255, 255, 255, 150)
-                        DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..id, 0, 0, 0.265, 0.5, 0.5, 255, 255, 255, 150)
+                        DrawText2D(pluginConfig.verifyMessage.." API ID: ~r~"..idString, 0, 0, 0.265, 0.5, 0.5, 255, 255, 255, 150)
                         -- END USER CONFIG
                         Wait(0)
                     end
