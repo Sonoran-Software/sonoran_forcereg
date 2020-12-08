@@ -13,7 +13,8 @@ if pluginConfig.enabled then
 
     if pluginConfig.captiveOption == "whitelist" then
         local function checkApiId(apiId, deferral, cb)
-            cadApiIdExists(apiId, function(player, identifier, exists)
+            cadApiIdExists(apiId, function(exists)
+                debugLog(("checkApiId %s"):format(exists))
                 cb(exists, deferral)
             end)
         end
@@ -24,6 +25,7 @@ if pluginConfig.enabled then
             Wait(1)
             deferrals.update("Checking CAD account, please wait...")
             checkApiId(GetIdentifiers(source)[Config.primaryIdentifier], deferrals, function(exists, deferral)
+                print("exists: "..tostring(exists))
                 if not exists then
                     deferral.done(pluginConfig.captiveMessage)
                 else
