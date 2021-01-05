@@ -29,6 +29,7 @@ if pluginConfig.enabled then
                 else
                     idString = identifier
                 end
+            end
             print(("Identifier %s does not exist."):format(idString))
             if pluginConfig.captiveOption:lower() == "nag" then
                 isNagging = true
