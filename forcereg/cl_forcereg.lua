@@ -23,8 +23,13 @@ if pluginConfig.enabled then
         if not exists then
             Wait(1)
             id = identifier
-            idString = Config.serverType == "esx" and ("%s:%s"):format(Config.primaryIdentifier, identifier) or identifier
-            print(("Identifier %s does not exist."):format(identifier))
+            if isPluginLoaded("esxsupport") then
+                if Config.plugins.esxsupport.usePrefix then
+                    idString = ("%s:%s"):format(Config.primaryIdentifier, identifier)
+                else
+                    idString = identifier
+                end
+            print(("Identifier %s does not exist."):format(idString))
             if pluginConfig.captiveOption:lower() == "nag" then
                 isNagging = true
             elseif pluginConfig.captiveOption:lower() == "freeze" then
