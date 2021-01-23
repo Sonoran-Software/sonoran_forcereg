@@ -23,6 +23,7 @@ if pluginConfig.enabled then
         if not exists then
             Wait(1)
             id = identifier
+            idString = identifier
             if isPluginLoaded("esxsupport") then
                 if Config.plugins.esxsupport.usePrefix then
                     idString = ("%s:%s"):format(Config.primaryIdentifier, identifier)
