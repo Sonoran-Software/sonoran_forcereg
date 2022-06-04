@@ -1,5 +1,5 @@
 {
-    "version": "1.3.4",
+    "version": "1.3.5",
     "check_url": "https://raw.githubusercontent.com/Sonoran-Software/sonoran_forcereg/master/forcereg/version_forcereg.json",
     "download_url": "https://github.com/Sonoran-Software/sonoran_forcereg/",
     "configVersion": "1.0"

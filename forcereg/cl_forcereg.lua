@@ -24,8 +24,10 @@ if pluginConfig.enabled then
             Wait(1)
             id = identifier
             idString = identifier
-            if isPluginLoaded("esxsupport") then
+            if isPluginLoaded("esxsupport") or isPluginLoaded("frameworksupport") then
                 if Config.plugins.esxsupport.usePrefix then
+                    idString = ("%s:%s"):format(Config.primaryIdentifier, identifier)
+                elseif Config.plugins.frameworksupport.usePrefix then
                     idString = ("%s:%s"):format(Config.primaryIdentifier, identifier)
                 else
                     idString = identifier
