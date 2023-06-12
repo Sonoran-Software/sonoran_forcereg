@@ -4,7 +4,7 @@
     Plugin Name: forcereg
     Creator: Era#1337
     Description: Requires players to link their API IDs to a valid Sonoran account.
-    
+
 ]]
 
 local pluginConfig = Config.GetPluginConfig("forcereg")
@@ -24,10 +24,8 @@ if pluginConfig.enabled then
             Wait(1)
             id = identifier
             idString = identifier
-            if isPluginLoaded("esxsupport") or isPluginLoaded("frameworksupport") then
-                if Config.plugins.esxsupport.usePrefix then
-                    idString = ("%s:%s"):format(Config.primaryIdentifier, identifier)
-                elseif Config.plugins.frameworksupport.usePrefix then
+            if isPluginLoaded("frameworksupport") then
+                if Config.plugins.frameworksupport.usePrefix then
                     idString = ("%s:%s"):format(Config.primaryIdentifier, identifier)
                 else
                     idString = identifier
@@ -122,7 +120,7 @@ Citizen.CreateThread(function()
 end)
 
 function DrawText2D(text, font, centre, px, py, scale, r, g, b, a, labelGen)
-    if labelGen then 
+    if labelGen then
         AddTextEntry(labelGen, text)
     end
     SetTextFont(font)
